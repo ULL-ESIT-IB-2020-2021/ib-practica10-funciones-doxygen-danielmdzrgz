@@ -3,37 +3,21 @@
 # Grado en Ingeniería Informática
 # Informática Básica
 #
-# @author F. de Sande
-# @date 17 nov 2020
-# @brief A Makefile example for HelloWorld program
-# 
+# @author Daniel Méndez
+# @date 16 Dic 2020
+# @brief A Makefile for cripto.cc program
 
-CXX = g++						             # The C++ compiler command
-CXXFLAGS = -std=c++14 -g -Wall	 # The C++ compiler options (C++14, preserve debug symbols and warn all)
-LDFLAGS =						             # The linker options (if any)
+CXX = g++
+CXXFLAGS = -std=c++14 -g -Wall
 
-# The all target builds all of the programs handled by the makefile.
-all: fibonacci_sum
-
-fibonacci_sum: fibonacci_sum.o fibonacci_main.o
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
-
-# Indicate that the all and clean targets do not
-# correspond to actual files.
 .PHONY: all clean
 
-# The following rule is effectively built into make and
-# therefore need not be explicitly specified:
-# hello_world.o: hello_world.cc
-#
+all: cripto
+
+cripto: cripto_functions.o cripto.o
+	$(CXX) $(CXXFLAGS) -o $@ $^ 
 	$(CXX) $(CXXFLAGS) -c $<
 
-# The clean target removes all of the executable files
-# and object files produced by the build process
-# We can use it for additional housekeeping purposes
 clean :
-	rm -rf *.o fibonacci_sum ../doc
+	rm -f cripto *.o
 	rm -rf *~ basura b i
-	rm -rf a.out
-	find . -name '*~' -exec rm {} \;
-	find . -name basura -exec rm {} \;
