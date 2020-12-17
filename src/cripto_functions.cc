@@ -85,6 +85,13 @@ std::vector<std::string> InputFileSentences(std::string kInputFileName) {
   return input_file_sentences;
 }
 
+/**
+* Counts the numebr of lower case 'e' that figures in the input file.
+*
+* @param input_file_sentences, vector with the sentences of the input file.
+* @returns Returns a counter with the number of 'e' in the file.
+*/
+
 int CounterOfE(std::vector<std::string> input_file_sentences) {
   int counter_letter_e {0};
   for(auto sentences : input_file_sentences) {
