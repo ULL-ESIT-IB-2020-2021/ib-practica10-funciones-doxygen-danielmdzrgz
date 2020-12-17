@@ -17,6 +17,8 @@ void Usage(int argc, char *argv[]);
 
 std::vector<std::string> InputFileSentences(std::string kFileName);
 
+int CounterOfE(std::vector<std::string> input_file_sentences);
+
 std::vector<std::string> XorEncryptionDecryption(std::string kPassword, std::vector<std::string> input_file_sentences);
 
 std::vector<std::string> CaesarEncryption(std::vector<std::string> input_file_sentences, std::string password);

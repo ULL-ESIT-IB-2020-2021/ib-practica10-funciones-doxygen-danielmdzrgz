@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include <cstring>
+#include <sstream>
 
 /**
 * It is not a function.
@@ -82,6 +83,20 @@ std::vector<std::string> InputFileSentences(std::string kInputFileName) {
     input_file.close();
   }
   return input_file_sentences;
+}
+
+int CounterOfE(std::vector<std::string> input_file_sentences) {
+  int counter_letter_e {0};
+  for(auto sentences : input_file_sentences) {
+    for(auto words : sentences) {
+      std::stringstream transform_c_to_s;
+      transform_c_to_s << words;
+      std::string word_to_analyse = transform_c_to_s.str();
+      for(auto i = 0; i < word_to_analyse.length(); i++)
+      if (word_to_analyse[i] == 'e') counter_letter_e++;
+    }
+  }
+  return counter_letter_e;
 }
 
 /**

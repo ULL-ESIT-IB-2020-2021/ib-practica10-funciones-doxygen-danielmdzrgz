@@ -50,6 +50,9 @@ Try './cripto --help' for more information.\n";
 
   std::vector<std::string> input_file_sentences = InputFileSentences(kInputFileName);
   
+  int letter_e_counter = CounterOfE(input_file_sentences);
+  std::cout << "The number of letters 'e' in the input file is: " << letter_e_counter << "\n\n";
+
   Menu(kOutputFileName, kMtethod, kPassword, kOperation, input_file_sentences);
   return 0;
 }
